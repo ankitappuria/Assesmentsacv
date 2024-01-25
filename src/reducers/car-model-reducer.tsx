@@ -43,8 +43,7 @@ export const carModelSlice = createSlice({
 
 });
 
-// Action creators are generated for each case reducer function
 export const { addCarModel } =
 carModelSlice.actions;
-// You must export the reducer as follows for it to be able to be read by the store.
+
 export default carModelSlice.reducer;

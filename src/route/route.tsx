@@ -1,31 +1,25 @@
 import {
-    Outlet,
-    Link,
     createBrowserRouter,
-    RouterProvider,
-    useNavigation,
 } from "react-router-dom";
 
-import App from '../app/components/carModel/App';
-import CarFilter from '../app/components/carFilter/carFilter';
+import CarModelComponent from '../app/components/carModel/CarModelComponent';
+import CarFilterComponent from '../app/components/carFilter/CarFilterComponent';
+import NotFoundComponent from '../app/components/NotFoundComponent';
 
-// function noMatch() {
-//     return <div>No Route Found</div>
-// };
 
 const rootRouter = createBrowserRouter([
     {
         path: "/",
-        element: <App />,
+        element: <CarModelComponent />,
     },
     {
         path: "/carFilter",
-        element: <CarFilter />,
+        element: <CarFilterComponent />,
     },
-    //  {
-    //   path: "*",
-    //   element: <Message />,
-    // }
+     {
+      path: "*",
+      element: <NotFoundComponent />,
+    }
 
 ]);
 

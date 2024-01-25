@@ -1,4 +1,4 @@
-// initialState
+
 export interface ICarModel {
   model: string
   color: string

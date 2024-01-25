@@ -5,17 +5,6 @@ type Props = {
     saveCarModel: (carModel: ICarModel | any) => void;
 };
 
-
-/** model: string
-    color: string
-    yearManufacture: number;
-    insuranceValid:string;
-    kms:number;
-    location:string;
-    noOfOwners:string;
-    transmission:string;
-    externalfitment:string;
-    photo:string; */
 const CarModelForm: React.FC<Props> = ({ saveCarModel }) => {
     const [carModel, setCarModel] = React.useState<ICarModel | {}>();
 
@@ -29,6 +18,9 @@ const CarModelForm: React.FC<Props> = ({ saveCarModel }) => {
     const addNewCar = (e: React.FormEvent) => {
         e.preventDefault();
         saveCarModel({ ...carModel, photo: 'abc.jpg' });
+       debugger;
+       (e.target as HTMLFormElement).reset();
+
     };
 
     return (

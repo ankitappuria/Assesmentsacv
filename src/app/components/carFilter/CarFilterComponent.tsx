@@ -1,26 +1,26 @@
 import React from 'react';
 import CarModelState, { ICarModel } from "../../../reducers/car-type";
 import { useSelector, shallowEqual } from "react-redux";
-import useFilter from './hook';
+import useFilter from './useFilter';
 import { RootState } from "../../../store/store";
 import JsonDisplay from "../common/jsonDisplay";
 
+
 interface ICarFilter {
     location?: string;
-    model?: string;
+    model?: Array<string>;
     noOfOwners?: string;
     transmission?: string;
 }
 
-function CarFilter() {
+function CarFilterComponent() {
     const { carModels }: CarModelState = useSelector(
         (state: RootState) => state.carModel,
         shallowEqual
     );
     const [carFilter, setCarFilter] = React.useState<ICarFilter | {}>({});
-    const [filteredData]:ICarModel[]  = useFilter(carFilter, carModels)
-        console.log(typeof filteredData);
-
+    const { filteredData } = useFilter(carFilter, carModels)
+   
     const onCarFilterSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setCarFilter({
             ...carFilter,
@@ -29,7 +29,26 @@ function CarFilter() {
     };
 
     const onCheckBoxchanged = (event: React.ChangeEvent<HTMLInputElement>) => {
-        console.log("event.currentTarget.value", event.currentTarget.value);
+        const newcarFilter: ICarFilter = { ...carFilter };
+        const currentTargetValue: string = event.currentTarget.value;
+
+        if (event.currentTarget.checked) {
+            debugger;
+            if (newcarFilter.model) {
+                newcarFilter.model.push(currentTargetValue)
+            } else {
+                newcarFilter["model"] = [currentTargetValue];
+            }
+        } else {
+            if (newcarFilter.model) {
+                const index =  newcarFilter.model.indexOf(currentTargetValue);
+                if (index > -1) { 
+                    newcarFilter.model.splice(index, 1); 
+                  }
+            }
+        }
+        
+        setCarFilter({...newcarFilter});
     }
 
     const onCarFilterInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -82,9 +101,9 @@ function CarFilter() {
                 </div>
 
             </div>
-            {/* <JsonDisplay inputJson={filteredData}></JsonDisplay> */}
+            <JsonDisplay inputJson={filteredData}></JsonDisplay>
         </div>
     );
 }
 
-export default CarFilter;
+export default CarFilterComponent;

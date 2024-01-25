@@ -45,5 +45,14 @@
   margin: 10px;
 }
 
+.flex-row-logo{
+  display:flex;
+}
+
+.flex-row-logo img {
+  widows: 100px;
+  height: 100px;
+  padding: 20px;
+}
 
 
