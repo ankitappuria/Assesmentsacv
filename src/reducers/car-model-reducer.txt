@@ -1,0 +1,67 @@
+import { act } from "react-dom/test-utils";
+import * as actionTypes from "../action-creators/car-model-action";
+
+export const initialState: CarModelState = {
+    carModels: [
+        {
+            model: "Swift Dezire",
+            color: "red",
+            yearManufacture: 2022,
+            insuranceValid: "2026",
+            kms: 2000,
+            location: "Chennai",
+            noOfOwners: 1,
+            transmission: "NA",
+            externalfitment: "NA",
+            photo: "ford.jpeg"
+        }
+    ]
+};
+
+
+// const todosSlice = createSlice({
+    // name: 'todos',
+    // initialState: [],
+    // reducers: {
+    //   todoAdded(state, action) {
+    //     state.push({
+    //       id: action.payload.id,
+    //       text: action.payload.text,
+    //       completed: false
+    //     })
+    //   },
+    //   todoToggled(state, action) {
+    //     const todo = state.find(todo => todo.id === action.payload)
+    //     todo.completed = !todo.completed
+    //   }
+    // }
+//   })
+
+const CarModelReducer = (
+    state: CarModelState = initialState,
+    action: CarModelAction
+): CarModelState => {
+    switch (action.type) {
+        case actionTypes.ADD_CAR_MODEL:
+            const newCarModel: ICarModel = {
+                model: action.carModel.model,
+                color: action.carModel.color,
+                yearManufacture: action.carModel.yearManufacture,
+                insuranceValid: action.carModel.insuranceValid,
+                kms: action.carModel.kms,
+                location: action.carModel.location,
+                noOfOwners: action.carModel.noOfOwners,
+                transmission: action.carModel.transmission,
+                externalfitment: action.carModel.externalfitment,
+                photo: "ford.jpeg"
+            };
+            return {
+                ...state,
+                carModels: state.carModels.concat(newCarModel)
+            };
+
+    }
+    return state;
+};
+
+export default CarModelReducer;
