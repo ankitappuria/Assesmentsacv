@@ -3,9 +3,10 @@ import { ICarModel } from "../../../reducers/car-type";
 
 type Props = {
     saveCarModel: (carModel: ICarModel | any) => void;
+    carModelstr?:string;
 };
 
-const CarModelForm: React.FC<Props> = ({ saveCarModel }) => {
+const CarModelForm: React.FC<Props> = ({ saveCarModel,carModelstr }) => {
     const [carModel, setCarModel] = React.useState<ICarModel | {}>();
 
     const onCarInputChange = (e: React.FormEvent<HTMLInputElement>) => {
@@ -17,8 +18,9 @@ const CarModelForm: React.FC<Props> = ({ saveCarModel }) => {
 
     const addNewCar = (e: React.FormEvent) => {
         e.preventDefault();
-        saveCarModel({ ...carModel, photo: 'abc.jpg' });
-       debugger;
+        const newCarModel = {...carModel};
+        newCarModel.model = carModelstr;
+        saveCarModel({ ...newCarModel, photo: 'abc.jpg' });
        (e.target as HTMLFormElement).reset();
 
     };
@@ -29,6 +31,7 @@ const CarModelForm: React.FC<Props> = ({ saveCarModel }) => {
                 type="text"
                 id="model"
                 placeholder="model"
+                value={carModelstr}
                 onChange={onCarInputChange}
             />
             <input

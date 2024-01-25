@@ -17,7 +17,7 @@ function CarModelComponent() {
     (state: RootState) => state.carModel,
     shallowEqual
   );
-  const [showForm,setShowForm] = useState<Boolean>(false);
+  const [carModelstr,setCarmodelStr] = useState<string>("");
 
   const dispatch: Dispatch<any> = useDispatch();
 
@@ -26,8 +26,8 @@ function CarModelComponent() {
     [dispatch]
   );
 
-  const onLogoClick = (isClicked:boolean) =>{
-    setShowForm(isClicked)
+  const onLogoClick = (carModelStr:string) =>{
+    setCarmodelStr(carModelStr);
   };
 
   return (
@@ -38,8 +38,8 @@ function CarModelComponent() {
       <div>
         <CarLogoList carLogoClicked={onLogoClick} />
       </div>
-      {showForm &&<div className="form-container">
-        <CarModelForm saveCarModel={addNewCar}></CarModelForm>
+      {carModelstr &&<div className="form-container">
+        <CarModelForm saveCarModel={addNewCar} carModelstr={carModelstr}></CarModelForm>
       </div>}
       <JsonDisplay inputJson={carModels}></JsonDisplay>
 
