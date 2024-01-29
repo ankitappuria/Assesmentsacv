@@ -1,9 +1,9 @@
 import React from 'react';
-import CarModelState, { ICarModel } from "../../../reducers/car-type";
+import CarModelState, { ICarModel } from "../../reducers/car-model-type";
 import { useSelector, shallowEqual } from "react-redux";
 import useFilter from './useFilter';
-import { RootState } from "../../../store/store";
-import JsonDisplay from "../common/jsonDisplay";
+import { RootState } from "../../store/store";
+import JsonDisplayComponent from "../common/JsonDisplayComponent";
 
 
 interface ICarFilter {
@@ -21,6 +21,7 @@ function CarFilterComponent() {
     const [carFilter, setCarFilter] = React.useState<ICarFilter | {}>({});
     const { filteredData } = useFilter(carFilter, carModels)
    
+    /*select tag  value  */
     const onCarFilterSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setCarFilter({
             ...carFilter,
@@ -33,7 +34,6 @@ function CarFilterComponent() {
         const currentTargetValue: string = event.currentTarget.value;
 
         if (event.currentTarget.checked) {
-            debugger;
             if (newcarFilter.model) {
                 newcarFilter.model.push(currentTargetValue)
             } else {
@@ -101,7 +101,7 @@ function CarFilterComponent() {
                 </div>
 
             </div>
-            <JsonDisplay inputJson={filteredData}></JsonDisplay>
+            <JsonDisplayComponent inputJson={filteredData}></JsonDisplayComponent>
         </div>
     );
 }

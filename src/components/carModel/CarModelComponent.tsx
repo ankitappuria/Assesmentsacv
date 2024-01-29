@@ -1,18 +1,18 @@
 import React,{useState} from 'react';
 import './CarModelComponent.css';
 import CarModelForm from "./CarModelForm";
-import CarModelState, { ICarModel } from "../../../reducers/car-type";
+import CarModelState, { ICarModel } from "../../reducers/car-model-type";
 import { Dispatch } from "redux";
 import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import {
   addCarModel
-} from "../../../reducers/car-model-reducer";
+} from "../../reducers/car-model-reducer";
 import { Link } from "react-router-dom";
-import JsonDisplay from "../common/jsonDisplay";
+import JsonDisplayComponent from "../common/JsonDisplayComponent";
 import CarLogoList from "./CarLogoList";
-import { RootState } from "../../../store/store";
+import { RootState } from "../../store/store";
 
-function CarModelComponent() {
+function CarModelComponent(){
   const { carModels }: CarModelState = useSelector(
     (state: RootState) => state.carModel,
     shallowEqual
@@ -41,7 +41,7 @@ function CarModelComponent() {
       {carModelstr &&<div className="form-container">
         <CarModelForm saveCarModel={addNewCar} carModelstr={carModelstr}></CarModelForm>
       </div>}
-      <JsonDisplay inputJson={carModels}></JsonDisplay>
+      <JsonDisplayComponent inputJson={carModels}></JsonDisplayComponent>
 
     </div>
   );

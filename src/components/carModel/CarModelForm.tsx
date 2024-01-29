@@ -1,5 +1,5 @@
 import * as React from "react";
-import { ICarModel } from "../../../reducers/car-type";
+import { ICarModel } from "../../reducers/car-model-type";
 
 type Props = {
     saveCarModel: (carModel: ICarModel | any) => void;

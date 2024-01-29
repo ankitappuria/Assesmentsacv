@@ -47,12 +47,16 @@
 
 .flex-row-logo{
   display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .flex-row-logo img {
-  widows: 100px;
-  height: 100px;
+  width: 150px;
   padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 

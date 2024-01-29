@@ -1,5 +1,5 @@
 import React from 'react';
-import CarModelState, { ICarModel } from "../../../reducers/car-type";
+import CarModelState, { ICarModel } from "../../reducers/car-model-type";
 import  "./jsonDisplay.css";
 
 type Props = {
@@ -7,7 +7,7 @@ type Props = {
 };
 
 
-const JsonDisplay: React.FC<Props> = ({ inputJson }) => {
+const JsonDisplayComponent: React.FC<Props> = ({ inputJson }) => {
     return (
     <div className="json-container">
        <pre> {JSON.stringify(inputJson,null,2)}</pre>
@@ -15,4 +15,4 @@ const JsonDisplay: React.FC<Props> = ({ inputJson }) => {
     );
 };
 
-export  default JsonDisplay;
+export  default JsonDisplayComponent;

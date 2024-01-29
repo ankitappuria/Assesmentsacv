@@ -2,9 +2,9 @@ import {
     createBrowserRouter,
 } from "react-router-dom";
 
-import CarModelComponent from '../app/components/carModel/CarModelComponent';
-import CarFilterComponent from '../app/components/carFilter/CarFilterComponent';
-import NotFoundComponent from '../app/components/NotFoundComponent';
+import CarModelComponent from '../components/carModel/CarModelComponent';
+import CarFilterComponent from '../components/carFilter/CarFilterComponent';
+import NotFoundComponent from '../components/common/NotFoundComponent';
 
 
 const rootRouter = createBrowserRouter([

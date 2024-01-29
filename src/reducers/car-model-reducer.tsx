@@ -1,4 +1,4 @@
-import CarModelState, { CarModelAction, ICarModel } from "./car-type";
+import CarModelState, { CarModelAction, ICarModel } from "./car-model-type";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const initialState: CarModelState = {
@@ -36,7 +36,7 @@ export const carModelSlice = createSlice({
         externalfitment: action.payload.externalfitment,
         photo: "ford.jpeg"
       };
-      state .carModels = state.carModels.concat(newCarModel);
+      state.carModels = state.carModels.concat(newCarModel);
     }
   },
 
@@ -44,6 +44,6 @@ export const carModelSlice = createSlice({
 });
 
 export const { addCarModel } =
-carModelSlice.actions;
+  carModelSlice.actions;
 
 export default carModelSlice.reducer;
