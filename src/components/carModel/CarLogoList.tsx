@@ -15,8 +15,8 @@ const CarLogoList: React.FC<Props> = ({ carLogoClicked }) => {
 
     return (<>
        <div className="flex-row-logo" >
-           {CAR_LOGO_LIST.map((carObj:{model:string,logo:string})=>{
-               return (<img src={`/assets/${carObj.logo}`} alt="Ford" id={carObj.model} onClick={onLogoClick}></img>)
+           {CAR_LOGO_LIST.map((carObj:{model:string,logo:string},index:number)=>{
+               return (<img src={`/assets/${carObj.logo}`}  key={index} alt="Ford" id={carObj.model} onClick={onLogoClick}></img>)
            })}
        </div>
        </>
