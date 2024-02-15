@@ -8,7 +8,11 @@ type Props = {
 };
 
 
-const CarLogoList: React.FC<Props> = ({ carLogoClicked }) => {
+const CarLogoList = (
+    {
+        carLogoClicked
+    }: Props
+) => {
     const onLogoClick = (event:any)=>{
         carLogoClicked(event.currentTarget.id);
     }

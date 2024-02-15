@@ -20,4 +20,5 @@ test("it call function on image clicks", async () => {
   const imageElements  = screen.getAllByRole('img');
   await user.click(imageElements[0]);
   expect(baseProps.carLogoClicked).toBeCalledTimes(1);
+  expect(baseProps.carLogoClicked).toBeCalledWith(CAR_LOGO_LIST[0].model);
 });

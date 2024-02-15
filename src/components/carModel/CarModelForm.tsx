@@ -6,7 +6,12 @@ type Props = {
     carModelstr?:string;
 };
 
-const CarModelForm: React.FC<Props> = ({ saveCarModel,carModelstr }) => {
+const CarModelForm = (
+    {
+        saveCarModel,
+        carModelstr
+    }: Props
+) => {
     const [carModel, setCarModel] = React.useState<ICarModel | {}>();
 
     const onCarInputChange = (e: React.FormEvent<HTMLInputElement>) => {

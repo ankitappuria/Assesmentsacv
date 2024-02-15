@@ -7,7 +7,11 @@ type Props = {
 };
 
 
-const JsonDisplayComponent: React.FC<Props> = ({ inputJson }) => {
+const JsonDisplayComponent = (
+    {
+        inputJson
+    }: Props
+) => {
     return (
     <div className="json-container">
        <pre> {JSON.stringify(inputJson,null,2)}</pre>
