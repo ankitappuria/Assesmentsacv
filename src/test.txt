@@ -1,0 +1,120 @@
+// import { normalizePathname } from "@remix-run/router";
+
+import { reduceEachLeadingCommentRange } from "typescript"
+
+// async function calculateSum(promises) {
+//     const awaited = await Promise.all(promises);
+//     let sum = 0;
+//     for (let i = 0; i < promises.length; i++) {
+//       const result = awaited[i];
+//       sum = sum + result;
+//     }
+//     return sum;
+//   }
+
+//   async function calculateSum(promises:Array<Promise:number> ):number {
+//     const awaited = await Promise.all(promises);
+//     return awaited.reduce((sum,cuurntVal)=>{
+//         sum= cuurntVal+sum;
+//         return sum;
+//     },0)
+    
+//   }
+
+//   norm
+
+
+export default function App() {
+  const [count, setCount] = useState(0);
+  const [doubleState, setDoubleState] = useState(0);
+  const doubleRef = useRef(0);
+
+  const increment = () => setCount((val) => val + 1);
+
+  useEffect(() => setDoubleState(count * 2), [count]);
+  useEffect(() => { doubleRef.current = count * 2 }, [count]);
+
+  return (
+    <div>
+      <div>Count : {count}</div>
+      <div>Double State : {doubleState}</div>
+      <div>Double Ref : {doubleRef.current}</div>
+      <button onClick={increment}>Increment</button>
+    </div>
+  );
+}
+
+// type Direction = "NORT"|"EAST"|"WEST"|
+
+// moveTo({north:10,s})
+
+
+ Question asked
+ 1. Difference between funtion and arrow function
+2. What is pure function
+ is it  pure  ? function addVectors(a, b) {  return {    x: a.x + b.x,    y: a.y + b.y,  };}
+ 3. async function calculateSum(promises) {  l
+  et sum = 0;  
+  for (let i = 0; i < promises.length; i++) {    
+    const result = await promises[i];    
+    sum = sum + result;  }  
+    return sum;
+  }
+   Please explain what it does ?   Please write same question using  reduceEachLeadingCommentRange
+  4.Type script above function
+  5.we want a type that can represent only a single direction
+  5.useReducers
+  6. useSelectors
+  7. UseDispatch
+  8.export default function App() {
+  const [count, setCount] = useState(0);
+  const [doubleState, setDoubleState] = useState(0);
+  const doubleRef = useRef(0);
+
+  const increment = () => setCount((val) => val + 1);
+
+  useEffect(() => setDoubleState(count * 2), [count]);
+  useEffect(() => { doubleRef.current = count * 2 }, [count]);
+
+  return (
+    <div>
+      <div>Count : {count}</div>
+      <div>Double State : {doubleState}</div>
+      <div>Double Ref : {doubleRef.current}</div>
+      <button onClick={increment}>Increment</button>
+    </div>
+  );
+}
+
+how many times component rerenders? answer is 2 
+
+9. const  CarModelComponent = ({}: {}) => {
+  const [count, setCount] = useState(0);
+  
+   const initalValue  =  async()=>{
+    let val = await countInitial();
+    setCount(val);
+   };
+  
+
+  useEffect(()=>{
+    initalValue();
+  },[initalValue]);
+  
+  const increment = ()=>{
+    setCount(3);
+  }
+
+  return (
+    
+    <div>
+      <div>Count : {count}</div>
+      
+      <button onClick={increment}>Increment</button>
+    </div>
+  );
+}
+
+export default CarModelComponent;
+
+why  increment button not incrementing value
